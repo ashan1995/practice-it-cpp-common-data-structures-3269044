@@ -3,9 +3,29 @@
 
 using namespace std;
 
+void isPrime(int number, std::vector<int> &primes)
+{
+    for (int i = 2; i <= (number * number); i++)
+    {
+        if (number != i && (number % i) == 0)
+        {
+            return;
+        }
+    }
+    primes.push_back(number);
+}
+
 void findPrimes(const int arr[], size_t size, std::vector<int> &primes)
 {
-    // TODO: Implement
+    if (size == 0)
+        return;
+
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] <= 1)
+            continue;
+        isPrime(arr[i], primes);
+    }
 }
 
 int main()
